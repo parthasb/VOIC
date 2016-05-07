@@ -1,0 +1,82 @@
+VOIC (Vaccine Ontology for Immunization Compliance) has been developed for detecting non-compliance of vaccine recipients to immunization schedule. The modules in this repository are useful for doing the following:
+
+1. RDFLizing immunization records data from CouchDB
+2. Inserting the data into Sesame/GraphDB repository
+3. Querying the repository
+
+Step by step guide to using the modules:
+
+1. Open settings.py in your favorite text editor
+2. Enter the path to your Sesame repository into which you intend to load the data.
+3. Enter the CouchDB database name from which you intend to import data.
+4. Modify execute.py as per your couchDB database.
+5. Modify couchToGraphDB.py only if needed.
+6. After you have inserted the RDFlized data into Sesame, import the VOIC ontology 
+(VOIC_1.00_xml.owl) into the same repository
+7. Consider loading Vaccine Ontology (VO) and Ontology of Vaccine Adverse Events (OVAE) for added inferencing
+
+Sample SPARQL queries
+
+1.  Identifying a type of vaccine recipient
+
+PREFIX : <https://w3id.org/voic#>
+SELECT ?dtpHiHepRecipient
+WHERE {
+{?dtpHiHepRecipient a :DTwPHibHepRecipient .}
+
+2. Getting the count of recipients
+
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX : <https://w3id.org/voic#>
+SELECT
+(COUNT (DISTINCT ?dtpHiHepRecipient) as ?dtpHiHepTotalCount)
+(COUNT (DISTINCT ?dtpHiHep1Recipient) as ?dtpHiHep1Count)
+(COUNT (DISTINCT ?dtpHiHep2Recipient) as ?dtpHiHep2Count)
+(COUNT (DISTINCT ?dtpHiHep3Recipient) as ?dtpHiHep3Count)
+WHERE {
+{?dtpHiHepRecipient a :DTwPHibHepRecipient .}
+UNION
+{?dtpHiHep1Recipient a :DTwPHibHep1Recipient .}
+UNION
+{?dtpHiHep2Recipient a :DTwPHibHep2Recipient .}
+UNION
+{?dtpHiHep3Recipient a :DTwPHibHep3jRecipient .}
+UNION
+{?dtpHiHepError a :DTwPHibHepRecipientWithErrorRecord .}
+}
+
+3. Identifying brands of a vaccine
+
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?brand WHERE {
+?vaccine ?p "pneumococcal vaccine" .
+FILTER (?p IN (obo:IAO_0000118, rdfs:label)) .
+?subclass rdfs:subClassOf ?vaccine .
+?subclass rdfs:label ?brand .
+}
+
+4. Identifying adverse events associated with a brand
+
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?ae where {
+?s ?p ?o
+FILTER ( ?p in (obo:IAO_0000118,rdfs:label) )
+FILTER REGEX(?o,"prevnar","i")
+FILTER REGEX(?o,"associated","i")
+?subclass rdfs:subClassOf ?s.
+?subclass rdfs:label ?ae
+FILTER (!REGEX (?ae, "adverse event", "i"))
+FILTER (!REGEX (?ae, "headache", "i"))
+FILTER (!REGEX (?ae, "muscle pain", "i"))
+FILTER (!REGEX (?ae, "fatigue", "i"))
+FILTER (!REGEX (?ae, "arm motion limitation", "i"))
+FILTER (!REGEX (?ae, "local swelling", "i"))
+FILTER (!REGEX (?ae, "sleep", "i"))
+FILTER (!REGEX (?ae, "irritability", "i"))
+FILTER (!REGEX (?ae, "appetite", "i"))
+}
+
+If you have questions or comments, reach out to partha.msg@gmail.com 
