@@ -1,0 +1,2126 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="https://w3id.org/voic#"
+     xml:base="https://w3id.org/voic"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="https://w3id.org/voic#">
+        <dcterms:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/ovae.owl"/>
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/vo.owl"/>
+        <owl:versionIRI rdf:resource="https://w3id.org/voic#version/1.0.0"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/voic#Pneumo_conjAdministeredTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#Pneumo_conjAdministeredTo">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#administeredTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#administeredAs -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#administeredAs">
+        <rdfs:range rdf:resource="https://w3id.org/voic#Dose"/>
+        <rdfs:domain rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/voic#deliveryOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#administeredTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#administeredTo">
+        <rdfs:domain rdf:resource="https://w3id.org/voic#Dose"/>
+        <rdfs:range rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#bcgAdministeredTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#bcgAdministeredTo">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#administeredTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#deliveryOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#deliveryOf">
+        <rdfs:domain rdf:resource="https://w3id.org/voic#Dose"/>
+        <rdfs:range rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#dtwphibhepbAdministeredTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#dtwphibhepbAdministeredTo">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#administeredTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#hasNext -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#hasNext">
+        <rdfs:range rdf:resource="https://w3id.org/voic#Dose"/>
+        <rdfs:domain rdf:resource="https://w3id.org/voic#Dose"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/voic#hasPrevious"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#hasPrevious -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#hasPrevious"/>
+    
+
+
+    <!-- https://w3id.org/voic#hasUnit -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#hasUnit">
+        <rdfs:domain rdf:resource="https://w3id.org/voic#Dose"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#ipvAdministeredTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#ipvAdministeredTo">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#administeredTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isAdministered -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isAdministered">
+        <rdfs:range rdf:resource="https://w3id.org/voic#Dose"/>
+        <rdfs:domain rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isAdministeredBCG -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isAdministeredBCG">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isAdministered"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/voic#isNotAdministeredBCG"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isAdministeredDTwPHibHep -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isAdministeredDTwPHibHep">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isAdministered"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/voic#isNotAdministeredDTwPHibHep"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isAdministeredIPV -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isAdministeredIPV">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isAdministered"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/voic#isNotAdministeredIPV"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isAdministeredMeasles -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isAdministeredMeasles">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isAdministered"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/voic#isNotAdministeredMeasles"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isAdministeredOPV -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isAdministeredOPV">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isAdministered"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/voic#isNotAdministeredOPV"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isAdministeredPneumo_conj -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isAdministeredPneumo_conj">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isAdministered"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/voic#isNotAdministeredPneumo_conj"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isAdministeredTT -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isAdministeredTT">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isAdministered"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/voic#isNotAdministeredTT"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isAdministeredYF -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isAdministeredYF">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isAdministered"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/voic#isNotAdministeredYF"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                    <owl:Class>
+                                        <owl:oneOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                                        </owl:oneOf>
+                                    </owl:Class>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isNotAdministered -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isNotAdministered"/>
+    
+
+
+    <!-- https://w3id.org/voic#isNotAdministeredBCG -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isNotAdministeredBCG">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isNotAdministered"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isNotAdministeredDTwPHibHep -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isNotAdministeredDTwPHibHep">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isNotAdministered"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isNotAdministeredIPV -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isNotAdministeredIPV">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isNotAdministered"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isNotAdministeredMeasles -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isNotAdministeredMeasles">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isNotAdministered"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isNotAdministeredOPV -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isNotAdministeredOPV">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isNotAdministered"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isNotAdministeredPneumo_conj -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isNotAdministeredPneumo_conj">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isNotAdministered"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isNotAdministeredTT -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isNotAdministeredTT">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isNotAdministered"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#isNotAdministeredYF -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#isNotAdministeredYF">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#isNotAdministered"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#measlesAdministeredTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#measlesAdministeredTo">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#administeredTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#opvAdministeredTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#opvAdministeredTo">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#administeredTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#ttAdministeredTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#ttAdministeredTo">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#administeredTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/voic#yfAdministeredTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/voic#yfAdministeredTo">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/voic#administeredTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/voic#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/voic#hasValue">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#milliliter"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/VO_0000640 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/VO_0000640">
+        <owl:equivalentClass rdf:resource="https://w3id.org/voic#TT"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/VO_0000664 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/VO_0000664">
+        <owl:equivalentClass rdf:resource="https://w3id.org/voic#IPV"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/VO_0000675 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/VO_0000675">
+        <owl:equivalentClass rdf:resource="https://w3id.org/voic#Pneumo_conj"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+        <owl:equivalentClass rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#BCG -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#BCG">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/voic#DTwPHibHep"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#BCGRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#BCGRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredBCG"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/voic#BCGScheduleIncompleteRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the single scheduled dose of BCG vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#BCGScheduleIncompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#BCGScheduleIncompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredBCG"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is not administrated a BCG vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#DTwPHibHep -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#DTwPHibHep">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#DTwPHibHep1Recipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#DTwPHibHep1Recipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredDTwPHibHep"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#DTwPHibHepRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the first scheduled dose of DTwPHibHep vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#DTwPHibHep2Recipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#DTwPHibHep2Recipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredDTwPHibHep"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredDTwPHibHep"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#DTwPHibHepRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the second scheduled dose of DTwPHibHep vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#DTwPHibHepRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#DTwPHibHepRecipient">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated one or more doses of diptheria-tetanus-pertussis-hemophilus influenzae-hepatitis B (DTwPHibHep).</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#DTwPHibHepRecipientWithErrorRecord -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#DTwPHibHepRecipientWithErrorRecord">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredDTwPHibHep"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredDTwPHibHep"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                                            </owl:Restriction>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredDTwPHibHep"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredDTwPHibHep"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredDTwPHibHep"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#DTwPHibHepRecipient"/>
+        <rdfs:isDefinedBy>A diptheria-tetanus-pertussis-hemophilus influenzae-hepatitis B (DTwPHibHep) vaccine recipient whose health record captures the sequence of administration of DTwPHibHep vaccine incorrectly.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#DTwPHibHepScheduleCompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#DTwPHibHepScheduleCompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredDTwPHibHep"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredDTwPHibHep"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredDTwPHibHep"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#DTwPHibHepRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated all the scheduled doses of DTwPHibHep vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#DTwPHibHepScheduleIncompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#DTwPHibHepScheduleIncompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#DTwPHibHep1Recipient"/>
+                            <rdf:Description rdf:about="https://w3id.org/voic#DTwPHibHep2Recipient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredDTwPHibHep"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:comment>An eligible person who is not administrated all scheduled doses of DTwPHibHep vaccine.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#Dose -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#Dose">
+        <owl:disjointWith rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:seeAlso>http://www.merriam-webster.com/dictionary/dose</rdfs:seeAlso>
+        <rdfs:isDefinedBy>A quantity of a medicine or drug taken or recommended to be taken at a particular time</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#FourDoseVaccine -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#FourDoseVaccine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/voic#Dose"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByDosageFrequency"/>
+        <rdfs:isDefinedBy>A vaccine that is administered as four doses to elicit requisite immune response to prevent target disease(s).</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#IPV -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#IPV">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#IPVRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#IPVRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredIPV"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the single scheduled dose of IPV.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#IPVScheduleIncompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#IPVScheduleIncompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredIPV"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is not administrated an inacivated poliovirus vaccine (IPV).</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#Measles -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#Measles">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/VO_0000654"/>
+                    <owl:Class>
+                        <owl:complementOf>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/VO_0000736"/>
+                                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/VO_0000945"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:complementOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#MeaslesRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#MeaslesRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredMeasles"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the single scheduled dose of measles vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#MeaslesScheduleIncompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#MeaslesScheduleIncompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredMeasles"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is not administrated a measles vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#MultiDoseVaccine -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#MultiDoseVaccine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#FourDoseVaccine"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#ThreeDoseVaccine"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#TwoDoseVaccine"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByDosageFrequency"/>
+        <rdfs:isDefinedBy>A vaccine that is administered as more than one dose to elicit requisite immune response to prevent target disease(s).</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#OPV -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#OPV">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#OPV1Recipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#OPV1Recipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#OPVRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the first scheduled dose of OPV.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#OPV2Recipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#OPV2Recipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#OPVRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the second scheduled dose of OPV.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#OPV3Recipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#OPV3Recipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#OPVRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the third scheduled dose of OPV.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#OPVRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#OPVRecipient">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated one or more doses of oral polio vaccine (OPV).</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#OPVRecipientWithErrorRecord -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#OPVRecipientWithErrorRecord">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredOPV"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredOPV"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                                            </owl:Restriction>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredOPV"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredOPV"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredOPV"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                                            </owl:Restriction>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose4"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredOPV"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#OPVRecipient"/>
+        <rdfs:isDefinedBy>An oral polio vaccine (OPV) recipient whose health record captures the sequence of administration of OPV incorrectly.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#OPVScheduleCompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#OPVScheduleCompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredOPV"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose4"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#OPVRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated all the scheduled doses of OPV.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#OPVScheduleIncompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#OPVScheduleIncompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#OPV1Recipient"/>
+                            <rdf:Description rdf:about="https://w3id.org/voic#OPV2Recipient"/>
+                            <rdf:Description rdf:about="https://w3id.org/voic#OPV3Recipient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredOPV"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose4"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#OPVRecipient"/>
+        <rdfs:comment>An eligible person who is not administrated all doses of OPV.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#OneDoseVaccine -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#OneDoseVaccine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/voic#Dose"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByDosageFrequency"/>
+        <rdfs:isDefinedBy>A vaccine that is administered as one dose to elicit requisite immune response to prevent target disease(s).</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#Pneumo_conj -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#Pneumo_conj">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#Pneumo_conj1Recipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#Pneumo_conj1Recipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredPneumo_conj"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#Pneumo_conjRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the first scheduled dose of Pneumo_conj vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#Pneumo_conj2Recipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#Pneumo_conj2Recipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredPneumo_conj"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredPneumo_conj"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#Pneumo_conjRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the second scheduled dose of Pneumo_conj vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#Pneumo_conjRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#Pneumo_conjRecipient">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated one or more doses of pneumococcal conjugate (Pneumo_conj) vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#Pneumo_conjRecipientWithErrorRecord -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#Pneumo_conjRecipientWithErrorRecord">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredPneumo_conj"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredPneumo_conj"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                                            </owl:Restriction>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredPneumo_conj"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredPneumo_conj"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredPneumo_conj"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#Pneumo_conjRecipient"/>
+        <rdfs:isDefinedBy>A pneumococcal conjugate (Pneumo_conj) vaccine recipient whose health record captures the sequence of administration of Pneumo_conj vaccine incorrectly.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#Pneumo_conjScheduleCompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#Pneumo_conjScheduleCompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredPneumo_conj"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredPneumo_conj"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredPneumo_conj"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#Pneumo_conjRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated all the scheduled doses of Pneumo_conj vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#Pneumo_conjScheduleIncompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#Pneumo_conjScheduleIncompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#Pneumo_conj1Recipient"/>
+                            <rdf:Description rdf:about="https://w3id.org/voic#Pneumo_conj2Recipient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredPneumo_conj"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#Pneumo_conjRecipient"/>
+        <rdfs:comment>An eligible person who is not administrated all doses of Pneumo_conj vaccine.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#ScheduleCompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#ScheduleCompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#BCGRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#DTwPHibHepScheduleCompleteRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#MeaslesRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#Pneumo_conjScheduleCompleteRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#TTScheduleCompleteRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#YFRecipient"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#IPVRecipient"/>
+                            <rdf:Description rdf:about="https://w3id.org/voic#OPVScheduleCompleteRecipient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated all the vaccines listed in a country&apos;s immunization schedule.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#ScheduleIncompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#ScheduleIncompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#BCGScheduleIncompleteRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#DTwPHibHepScheduleIncompleteRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#IPVScheduleIncompleteRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#MeaslesScheduleIncompleteRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#OPVScheduleIncompleteRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#Pneumo_conjScheduleIncompleteRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#TTScheduleIncompleteRecipient"/>
+                    <rdf:Description rdf:about="https://w3id.org/voic#YFScheduleIncompleteRecipient"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is not administrated one or more of the vaccines listed in a country&apos;s immunization schedule.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#TT -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#TT">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+        <rdfs:comment xml:lang="en">Tetanus Toxoid vaccine</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#TT1Recipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#TT1Recipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#TTRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the first scheduled dose of TT vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#TT2Recipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#TT2Recipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#TTRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the second scheduled dose of TT vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#TT3Recipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#TT3Recipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#TTRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the third scheduled dose of TT vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#TTRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#TTRecipient">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated one or more doses of tetanus toxoid (TT) vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#TTRecipientWithErrorRecord -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#TTRecipientWithErrorRecord">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredTT"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredTT"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                                            </owl:Restriction>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredTT"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredTT"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredTT"/>
+                                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                                            </owl:Restriction>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose4"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredTT"/>
+                                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#TTRecipient"/>
+        <rdfs:isDefinedBy>A tetanus toxoid (TT) vaccine recipient whose health record captures the sequence of administration of TT vaccine incorrectly.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#TTScheduleCompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#TTScheduleCompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose2"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose3"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredTT"/>
+                                <owl:hasValue rdf:resource="https://w3id.org/voic#dose4"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#TTRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated all scheduled doses of TT vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#TTScheduleIncompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#TTScheduleIncompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://w3id.org/voic#TT1Recipient"/>
+                            <rdf:Description rdf:about="https://w3id.org/voic#TT2Recipient"/>
+                            <rdf:Description rdf:about="https://w3id.org/voic#TT3Recipient"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredTT"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose4"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#TTRecipient"/>
+        <rdfs:comment>An eligible person who is not administrated all doses of TT vaccine.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#ThreeDoseVaccine -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#ThreeDoseVaccine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/voic#Dose"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByDosageFrequency"/>
+        <rdfs:isDefinedBy>A vaccine that is administered as three doses to elicit requisite immune response to prevent target disease(s).</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#TwoDoseVaccine -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#TwoDoseVaccine">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:allValuesFrom rdf:resource="https://w3id.org/voic#Dose"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#administeredAs"/>
+                        <owl:onClass>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:onClass>
+                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByDosageFrequency"/>
+        <rdfs:isDefinedBy>A vaccine that is administered as two doses to elicit requisite immune response to prevent target disease(s).</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#VaccineByAntigen -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#VaccineByAntigen">
+        <owl:disjointWith rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:comment>A vaccine that provokes the immune system to generate antibodies against specific antigen(s).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#VaccineByDosageFrequency -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#VaccineByDosageFrequency">
+        <rdfs:comment>A vaccine that provokes the immune system to generate antibodies against specific antigen(s) based on number of doses.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#VaccineRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#VaccineRecipient">
+        <rdfs:comment>A person who is administrated a vaccine.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#YF -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#YF">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineByAntigen"/>
+        <rdfs:comment xml:lang="en">Yellow Fever vaccine</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#YFRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#YFRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isAdministeredYF"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is administrated the single scheduled dose of yellow fever vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/voic#YFScheduleIncompleteRecipient -->
+
+    <owl:Class rdf:about="https://w3id.org/voic#YFScheduleIncompleteRecipient">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="https://w3id.org/voic#VaccineRecipient"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/voic#isNotAdministeredYF"/>
+                        <owl:hasValue rdf:resource="https://w3id.org/voic#dose1"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/voic#VaccineRecipient"/>
+        <rdfs:isDefinedBy>An eligible person who is not administrated a yellow fever vaccine.</rdfs:isDefinedBy>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/voic#DTP_Dose1 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/voic#DTP_Dose1"/>
+    
+
+
+    <!-- https://w3id.org/voic#TestRec1 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/voic#TestRec1"/>
+    
+
+
+    <!-- https://w3id.org/voic#TestRec2 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/voic#TestRec2"/>
+    
+
+
+    <!-- https://w3id.org/voic#TestRec3 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/voic#TestRec3"/>
+    
+
+
+    <!-- https://w3id.org/voic#dose1 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/voic#dose1">
+        <rdf:type rdf:resource="https://w3id.org/voic#Dose"/>
+        <hasNext rdf:resource="https://w3id.org/voic#dose2"/>
+        <hasUnit rdf:resource="https://w3id.org/voic#milliliter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/voic#dose2 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/voic#dose2">
+        <rdf:type rdf:resource="https://w3id.org/voic#Dose"/>
+        <hasNext rdf:resource="https://w3id.org/voic#dose3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/voic#dose3 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/voic#dose3">
+        <rdf:type rdf:resource="https://w3id.org/voic#Dose"/>
+        <hasNext rdf:resource="https://w3id.org/voic#dose4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/voic#dose4 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/voic#dose4">
+        <rdf:type rdf:resource="https://w3id.org/voic#Dose"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/voic#doseNull -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/voic#doseNull"/>
+    
+
+
+    <!-- https://w3id.org/voic#milliliter -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/voic#milliliter">
+        <hasValue rdf:datatype="&xsd;float">5.0</hasValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/voic#dose1"/>
+            <rdf:Description rdf:about="https://w3id.org/voic#dose2"/>
+            <rdf:Description rdf:about="https://w3id.org/voic#dose3"/>
+            <rdf:Description rdf:about="https://w3id.org/voic#dose4"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
